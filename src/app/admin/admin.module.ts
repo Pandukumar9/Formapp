@@ -5,9 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { ListItemsComponent } from './components/list-items/list-items.component';
-import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MaterialModule } from '../shared/material/material.module';
 
 const routes: Routes = [
   { path: 'admin-dash', component: AdminDashboardComponent },
@@ -26,10 +25,9 @@ const routes: Routes = [
     CommonModule,
     SharedModule,
     RouterModule.forChild(routes),
-    MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTabsModule
+    MaterialModule
   ]
 })
 export class AdminModule { }

@@ -5,6 +5,9 @@ export * from './components/home/home.component';
 export * from './components/login/login.component';
 export * from './components/register/register.component';
 export * from './components/sidebar/sidebar.component';
+
 export * from './models/user.model';
 
 export * from './shared.module';
+
+export * from './material/material.module';

@@ -1,0 +1,79 @@
+<div class="content mt-4 mr-3 ml-3">
+  <div class="card">
+    <div class="card-header">
+      <h5>Settings</h5>
+        <!-- Back Button -->
+        <button class="btn btn-secondary" (click)="goBack()">Back</button>
+    </div>
+    <div class="card-body">
+      <mat-tab-group>
+        <!-- Account Settings Tab -->
+        <mat-tab label="Account">
+          <form>
+            <div class="row mb-3">
+              <label class="col-sm-3 col-form-label">Username</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" [(ngModel)]="settings.username" name="username" required>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label class="col-sm-3 col-form-label">Email</label>
+              <div class="col-sm-9">
+                <input type="email" class="form-control" [(ngModel)]="settings.email" name="email" required>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Account Settings</button>
+          </form>
+        </mat-tab>
+
+        <!-- Notification Settings Tab -->
+        <mat-tab label="Notifications">
+          <form>
+            <div class="row mb-3">
+              <label class="col-sm-3 col-form-label">Email Notifications</label>
+              <div class="col-sm-9">
+                <mat-slide-toggle [(ngModel)]="settings.emailNotifications" name="emailNotifications">
+                  Enable Email Notifications
+                </mat-slide-toggle>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label class="col-sm-3 col-form-label">SMS Notifications</label>
+              <div class="col-sm-9">
+                <mat-slide-toggle [(ngModel)]="settings.smsNotifications" name="smsNotifications">
+                  Enable SMS Notifications
+                </mat-slide-toggle>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Notification Settings</button>
+          </form>
+        </mat-tab>
+
+        <!-- Privacy Settings Tab -->
+        <mat-tab label="Privacy">
+          <form>
+            <div class="row mb-3">
+              <label class="col-sm-3 col-form-label">Profile Visibility</label>
+              <div class="col-sm-9">
+                <mat-select [(ngModel)]="settings.profileVisibility" name="profileVisibility">
+                  <mat-option value="public">Public</mat-option>
+                  <mat-option value="friends">Friends Only</mat-option>
+                  <mat-option value="private">Private</mat-option>
+                </mat-select>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label class="col-sm-3 col-form-label">Search Visibility</label>
+              <div class="col-sm-9">
+                <mat-slide-toggle [(ngModel)]="settings.searchVisibility" name="searchVisibility">
+                  Allow my profile to appear in search results
+                </mat-slide-toggle>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Privacy Settings</button>
+          </form>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

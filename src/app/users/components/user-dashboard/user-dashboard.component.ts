@@ -9,7 +9,7 @@ export class UserDashboardComponent {
 
   imurl: string = "../../../../assets/images/dhoni.jpeg";
   isCalled: boolean = false;
-  
+  iswCalled: boolean = false;
   saved() {
     if (!this.isCalled) {
       this.isCalled = true;
@@ -70,7 +70,7 @@ export class UserDashboardComponent {
   uploadFile(file: File) {
     // Simulate file upload and reset the disable state after uploading
     console.log("Uploading file:", file.name);
-    
+
     // Mock async file upload process
     setTimeout(() => {
       console.log("File upload successful!");
@@ -78,5 +78,6 @@ export class UserDashboardComponent {
       this.isUploadDisabled = false;
     }, 3000);  // Mock upload delay
   }
-  
+
+
 }
