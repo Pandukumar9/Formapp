@@ -1,0 +1,75 @@
+<div class="container my-5">
+  <!-- Support Heading -->
+  <h2 class="text-center mb-4">Support Center</h2>
+  <p class="text-center mb-5">Find answers to frequently asked questions or reach out to our support team.</p>
+
+  <div class="row">
+    <!-- Support Categories -->
+    <div class="col-md-4">
+      <h4 class="mb-3">Support Categories</h4>
+              <!-- Back Button -->
+      <a class="btn btn-secondary" href="users/user">Back</a>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <a href="#" (click)="selectCategory('Account')">Account Issues</a>
+        </li>
+        <li class="list-group-item">
+          <a href="#" (click)="selectCategory('Payments')">Payment Problems</a>
+        </li>
+        <li class="list-group-item">
+          <a href="#" (click)="selectCategory('Technical')">Technical Support</a>
+        </li>
+        <li class="list-group-item">
+          <a href="#" (click)="selectCategory('General')">General Questions</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="col-md-8">
+      <h4 class="mb-3">Frequently Asked Questions</h4>
+      <div *ngFor="let faq of filteredFaqs" class="accordion mb-3" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="heading{{faq.id}}">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    [attr.data-bs-target]="'#collapse' + faq.id" aria-expanded="false">
+              {{ faq.question }}
+            </button>
+          </h2>
+          <div [id]="'collapse' + faq.id" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">{{ faq.answer }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="row mt-5">
+    <div class="col-md-8 offset-md-2">
+      <h4>Contact Support</h4>
+      <form (ngSubmit)="submitSupportRequest()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" class="form-control" [(ngModel)]="supportRequest.name" name="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" class="form-control" [(ngModel)]="supportRequest.email" name="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="category" class="form-label">Category</label>
+          <select id="category" class="form-select" [(ngModel)]="supportRequest.category" name="category" required>
+            <option value="">Select a Category</option>
+            <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea id="message" class="form-control" [(ngModel)]="supportRequest.message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Request</button>
+      </form>
+    </div>
+  </div>
+</div>

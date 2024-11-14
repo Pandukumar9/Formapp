@@ -1,29 +1,41 @@
-#sidebar {
-  height: 61vh;
-  position: absolute;
-  }
-  
-  .sidebar-heading {
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .nav-link {
-    color: #333;
-  }
-  
-  .nav-link.active {
-    color: #007bff;
-    font-weight: bold;
-  }
-  
-  .main-content {
-    margin-top: 20px;
-  }
-  
+/* user-profile.component.css */
+// .sidebar {
+//   height: 100vh;
+//   padding-top: 20px;
+// }
 
-  .pandu {
-    color: rebeccapurple;
-  }
+.sidebar .nav-link.active {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.content {
+  padding: 20px;
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Set full height for the container */
+.main-container {
+  height: 100vh;
+}
+
+/* Style the left and right sidebars */
+.sidenav {
+  width: 250px;
+  background-color: #f8f9fa;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Main content padding */
+.content-area {
+  padding: 20px;
+}
+
+/* Navbar styling */
+.navbar {
+  margin-bottom: 20px;
+}
