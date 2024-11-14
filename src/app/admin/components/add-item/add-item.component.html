@@ -1,0 +1,47 @@
+<div class="container p-4">
+  <h2>Add a New Item</h2>
+<form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="category">Category</label>
+    <select class="form-control" formControlName="category" id="category">
+      <option value="fruit">Fruit</option>
+      <option value="vegetable">Vegetable</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="name">Item Name</label>
+    <input type="text" class="form-control" formControlName="name" id="name" required>
+    <div *ngIf="itemForm.controls['name'].invalid && itemForm.controls['name'].touched" class="text-danger">
+      Name is required.
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="pricePerKg">Price per Kg</label>
+    <input type="number" class="form-control" formControlName="pricePerKg" id="pricePerKg" required>
+    <div *ngIf="itemForm.controls['pricePerKg'].invalid && itemForm.controls['pricePerKg'].touched" class="text-danger">
+      Price per Kg is required and must be a positive number.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="availableQuantity">Available Quantity</label>
+    <input type="number" class="form-control" formControlName="availableQuantity" id="availableQuantity" required>
+    <div *ngIf="itemForm.controls['availableQuantity'].invalid && itemForm.controls['availableQuantity'].touched" class="text-danger">
+      Quantity is required and must be a positive number.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="Comments">Comments</label>
+    <textarea class="form-control" formControlName="comments" id="Comments">
+    </textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-3 mr-3" [disabled]="itemForm.invalid">Submit</button>
+  <button type="button" class="btn btn-secondary mt-3" (click)="onCancel()">Cancel</button>
+</form>
+
+</div>

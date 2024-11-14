@@ -1,0 +1,10 @@
+<div class="header">
+    <div class="user-info" *ngIf="userProfile.username && userProfile.role">
+      <span >Welcome, {{ userProfile.username }}!</span>
+      <span>Role: {{ userProfile.role }}</span>
+    </div>
+    <button *ngIf="userProfile" (click)="register()">Register</button>
+    <button *ngIf="userProfile" (click)="login()">Login</button>
+    <button *ngIf="userProfile" (click)="logout()">Logout</button>
+</div>
+

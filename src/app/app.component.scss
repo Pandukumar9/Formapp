@@ -1,0 +1,40 @@
+/* Sidebar styling */
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: #343a40;
+    padding-top: 20px;
+    height: 100vh;
+  }
+  
+  /* Content Wrapper */
+  .content-wrapper {
+    margin-left: 250px;
+    padding: 20px;
+  }
+  
+  /* Navbar styling */
+  .navbar {
+    background-color: #007bff;
+  }
+  
+  .navbar .navbar-nav .nav-link {
+    color: white;
+  }
+  
+  .navbar .navbar-brand {
+    color: white;
+  }
+  
+  /* Card styling */
+  .card {
+    margin-bottom: 20px;
+  }
+  
+  .card-header {
+    background-color: #007bff;
+    color: white;
+  }
+  

@@ -1,0 +1,25 @@
+#sidebar {
+  height: 61vh;
+  position: absolute;
+  }
+  
+  .sidebar-heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .nav-link {
+    color: #333;
+  }
+  
+  .nav-link.active {
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .main-content {
+    margin-top: 20px;
+  }
+  

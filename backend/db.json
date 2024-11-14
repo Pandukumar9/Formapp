@@ -1,0 +1,80 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "email": "pandukumar.gujja204@gmail.com",
+      "password": "admin123",
+      "role": "admin",
+      "token": "admintoken123"
+    },
+    {
+      "id": "81917",
+      "username": "pandukumar",
+      "email": "pandukumar.gujja@gmail.com",
+      "password": "Test#1357",
+      "role": "user",
+      "token": "dxyu3wgyues"
+    },
+    {
+      "id": "76589",
+      "username": "madhukumar",
+      "email": "madhukumar@gmail.com",
+      "password": "test@123",
+      "role": "user",
+      "token": "1lpvrt32z9f"
+    },
+    {
+      "id": 39958,
+      "username": "prudvi",
+      "email": "prudviraj@gmail.com",
+      "password": "test@123",
+      "role": "user",
+      "token": "3ginm3lyyzb"
+    }
+  ],
+  "fruits": [
+    {
+      "id": "38c9",
+      "category": "fruit",
+      "name": "Pinaple",
+      "pricePerKg": 30,
+      "availableQuantity": 65,
+      "comments": "its organic fruit"
+    },
+    {
+      "id": "d1df",
+      "category": "fruit",
+      "name": "mango",
+      "pricePerKg": 7,
+      "availableQuantity": 6,
+      "comments": "fruit"
+    },
+    {
+      "id": "67e5",
+      "category": "fruit",
+      "name": "sds",
+      "pricePerKg": 7,
+      "availableQuantity": 55,
+      "comments": "fruit"
+    }
+  ],
+  "vegetables": [
+    {
+      "id": "1",
+      "category": "fruit",
+      "name": "Potato",
+      "pricePerKg": 40,
+      "availableQuantity": 50,
+      "comments": ""
+    },
+    {
+      "id": "2",
+      "category": "fruit",
+      "name": "Tomato",
+      "pricePerKg": 30,
+      "availableQuantity": 50,
+      "comments": ""
+    }
+  ]
+}
