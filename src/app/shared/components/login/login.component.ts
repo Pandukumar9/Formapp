@@ -35,10 +35,13 @@ export class LoginComponent {
           if (success.Status === "Success") {
             // Store user data using a shared service
             this.api.userdata.next(success.userData);
+            this.authService.setLoggedInUser(success.userData); // Save user in shared service
+            success.userData.role == 'admin' ? this.router.navigate(['/admin-dash']) : this.router.navigate(['/users/user']);  // Navigate to home on successful login
+            // window.location.reload();    // Reload the page
 
             // Navigate based on the user's role
-            success.userData.role === 'admin' 
-              ? this.router.navigate(['/admin-dash']) 
+            success.userData.role === 'admin'
+              ? this.router.navigate(['/admin-dash'])
               : this.router.navigate(['/users/user']);
           } else {
             this.errorMessage = 'Invalid email or password';
@@ -50,4 +53,5 @@ export class LoginComponent {
       );
     }
   }
+
 }

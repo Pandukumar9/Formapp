@@ -1,37 +1,56 @@
-  <div class="content mt-4">
-          <div class="card">
-            <div class="card-header">
-              <h5>User Profile</h5>
-              <button class="btn btn-secondary" (click)="goBack()">Back to Dashboard</button>
-            </div>
-            <div class="card-body">
-              <form>
-                <div class="row mb-3">
-                  <label class="col-sm-3 col-form-label">Full Name</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" [(ngModel)]="user.fullName" name="fullName" required>
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <label class="col-sm-3 col-form-label">Email</label>
-                  <div class="col-sm-9">
-                    <input type="email" class="form-control" [(ngModel)]="user.email" name="email" required>
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <label class="col-sm-3 col-form-label">Phone Number</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" [(ngModel)]="user.phone" name="phone">
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <label class="col-sm-3 col-form-label">Address</label>
-                  <div class="col-sm-9">
-                    <textarea class="form-control" [(ngModel)]="user.address" name="address" rows="3"></textarea>
-                  </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Save Changes</button>
-              </form>
-            </div>
-          </div>
-        </div>
+<div class="profile-container card shadow p-4">
+  <h2 class="text-center mb-4">User Profile</h2>
+
+  <!-- Profile Picture Section -->
+  <div class="text-center mb-4">
+    <img
+      [src]="profilePicture || user.profilePicture || 'assets/default-profile.png'"
+      alt="Profile Picture"
+      class="rounded-circle border"
+      width="150"
+      height="150"
+    />
+    <div class="mt-3">
+      <label for="profilePicture" class="btn btn-outline-secondary">
+        Upload Profile Picture
+      </label>
+      <input
+        type="file"
+        id="profilePicture"
+        class="d-none"
+        (change)="onProfilePictureSelected($event)"
+      />
+    </div>
+  </div>
+
+  <!-- Profile Update Form -->
+  <form (ngSubmit)="onSaveChanges()" class="form-container">
+    <div class="form-group mb-3">
+      <label for="firstname" class="form-label">First Name</label>
+      <input
+        type="text"
+        id="firstname"
+        class="form-control"
+        [(ngModel)]="user.firstname"
+        name="firstname"
+        placeholder="Enter your first name"
+      />
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="lastname" class="form-label">Last Name</label>
+      <input
+        type="text"
+        id="lastname"
+        class="form-control"
+        [(ngModel)]="user.lastname"
+        name="lastname"
+        placeholder="Enter your last name"
+      />
+    </div>
+
+    <div class="d-grid mt-4">
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+    </div>
+  </form>
+</div>
