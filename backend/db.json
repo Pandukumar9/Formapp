@@ -39,6 +39,15 @@
       "password": "kit@123",
       "role": "user",
       "token": "it1w6e5wuhc"
+    },
+    {
+      "id": 49428,
+      "firstname": "madhu",
+      "lastname": "kumar",
+      "email": "pandu@gmail.com",
+      "password": "test@123",
+      "role": "user",
+      "token": "nwqyjyevg2"
     }
   ],
   "fruits": [

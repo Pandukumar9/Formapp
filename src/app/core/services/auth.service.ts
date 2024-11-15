@@ -58,12 +58,13 @@ export class AuthService {
   }
 
   // Method to register a new user
-  register(username: string, email: string, password: string): Observable<any> {
+  register(firstname: string,lastname: string, email: string, password: string): Observable<any> {
     // Generating a token and setting a default role
     const authToken = this.generateToken();
     const user = {
       id: this.generateUserId(), // Simulating ID generation; replace with backend-generated ID if available
-      username,
+      firstname,
+      lastname,
       email,
       password,
       role: 'user',  // Default role

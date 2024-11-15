@@ -9,17 +9,32 @@
   
       <!-- Username Field -->
       <div class="form-group">
-        <label for="username">Username</label>
+        <label for="firstname">First name</label>
         <input
           type="text"
-          id="username"
-          formControlName="username"
+          id="firstname"
+          formControlName="firstname"
           class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && registerForm.get('username')?.errors }"
+          [ngClass]="{ 'is-invalid': submitted && registerForm.get('firstname')?.errors }"
         />
-        <div *ngIf="submitted && registerForm.get('username')?.errors" class="invalid-feedback">
-          <div *ngIf="registerForm.get('username')?.errors?.['required']">Username is required.</div>
-          <div *ngIf="registerForm.get('username')?.errors?.['minlength']">Username must be at least 3 characters.</div>
+        <div *ngIf="submitted && registerForm.get('firstname')?.errors" class="invalid-feedback">
+          <div *ngIf="registerForm.get('firstname')?.errors?.['required']">firstname is required.</div>
+          <div *ngIf="registerForm.get('firstname')?.errors?.['minlength']">firstname must be at least 3 characters.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="lastname">Last name</label>
+        <input
+          type="text"
+          id="lastname"
+          formControlName="lastname"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && registerForm.get('lastname')?.errors }"
+        />
+        <div *ngIf="submitted && registerForm.get('lastname')?.errors" class="invalid-feedback">
+          <div *ngIf="registerForm.get('lastname')?.errors?.['required']">lastname is required.</div>
+          <div *ngIf="registerForm.get('lastname')?.errors?.['minlength']">lastname must be at least 3 characters.</div>
         </div>
       </div>
   
