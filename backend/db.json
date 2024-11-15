@@ -31,6 +31,14 @@
       "password": "test@123",
       "role": "user",
       "token": "3ginm3lyyzb"
+    },
+    {
+      "id": 19597,
+      "username": "kit",
+      "email": "kit@gmail.com",
+      "password": "kit@123",
+      "role": "user",
+      "token": "it1w6e5wuhc"
     }
   ],
   "fruits": [
