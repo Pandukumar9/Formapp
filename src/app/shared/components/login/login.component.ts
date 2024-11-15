@@ -33,6 +33,7 @@ export class LoginComponent {
           console.log(success)
           if (success.Status == "Success") {
             this.api.userdata.next(success.userData);
+            this.authService.setLoggedInUser(success.userData); // Save user in shared service
             success.userData.role == 'admin' ? this.router.navigate(['/admin-dash']) : this.router.navigate(['/users/user']);  // Navigate to home on successful login
             // window.location.reload();    // Reload the page
           } else {
@@ -45,4 +46,5 @@ export class LoginComponent {
       );
     }
   }
+
 }

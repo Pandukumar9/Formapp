@@ -1,5 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class UserService {
   private userSource = new BehaviorSubject<{ name: string, role: string } | null>(null);  // Default is null
   user$ = this.userSource.asObservable();  // Observable for subscribing
 
-  constructor() {}
+  constructor(private http:HttpClient) {}
 
   // Set user details in BehaviorSubject
   setUser(userName: string, userRole: string): void {
@@ -33,5 +34,9 @@ export class UserService {
     localStorage.removeItem('userRole');
     localStorage.removeItem('userId');
     this.userSource.next(null);  // Reset the BehaviorSubject
+  }
+
+  updateUserProfile(updatedUser:any,id:any):Observable<any>{
+   return this.http.put(`http://localhost:3000/users/${id}`, updatedUser)
   }
 }

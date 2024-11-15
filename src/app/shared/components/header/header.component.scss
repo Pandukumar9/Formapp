@@ -8,15 +8,15 @@
     justify-content: space-between;
     align-items: center;
   }
-  
+
   .user-info {
     font-size: 16px;
   }
-  
+
   .user-info span {
     margin-left: 15px;
   }
-  
+
   button {
     background-color: #ff4d4d;
     color: white;
@@ -25,8 +25,17 @@
     border-radius: 5px;
     cursor: pointer;
   }
-  
+
   button:hover {
     background-color: #ff1a1a;
   }
-  
+
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+
+  .avatar {
+    object-fit: cover;
+    border: 2px solid #dee2e6;
+  }

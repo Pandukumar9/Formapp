@@ -12,6 +12,17 @@ export class AuthService {
 
   private loginUrl = 'http://localhost:3000/users';
 
+  private loggedInUser: any;
+
+  setLoggedInUser(user: any) {
+    this.loggedInUser = user;
+  }
+
+  getLoggedInUser() {
+    return this.loggedInUser;
+  }
+
+
   constructor(private http: HttpClient, private router: Router, private api: ApiService) { }
 
   login(email: string, password: string): Observable<any> {
@@ -68,7 +79,8 @@ export class AuthService {
       email,
       password,
       role: 'user',  // Default role
-      token: authToken
+      token: authToken,
+      profilePicture : null
     };
 
     return this.http.post(this.loginUrl, user).pipe(

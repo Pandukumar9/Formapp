@@ -1,11 +1,26 @@
 <div class="header">
-<h2 class="mt-3">Form Appication</h2>
-    <ng-container *ngIf="userProfile.firstname && userProfile.lastname && userProfile.role">
-      <div class="user-info">
-        <span >Welcome, {{ userProfile.username }}!</span>
+  <h2 class="mt-3">Form Application</h2>
+  <ng-container *ngIf="userProfile.firstname && userProfile.lastname && userProfile.role">
+    <div class="user-info d-flex align-items-center">
+      <!-- Display Profile Picture -->
+      <img
+        [src]="userProfile.profilePicture || 'assets/default-avatar.png'"
+        alt="Profile Picture"
+        class="avatar rounded-circle me-2"
+        width="50"
+        height="50"
+      />
+
+      <!-- Display Welcome Message and Role -->
+      <div>
+        <span>Welcome, {{ userProfile.firstname }} {{ userProfile.lastname }}!</span><br />
         <span>Role: {{ userProfile.role }}</span>
       </div>
-    <button (click)="logout()">Logout</button>
+    </div>
+
+    <!-- Logout Button -->
+    <button class="btn btn-danger ms-3" (click)="logout()">Logout</button>
   </ng-container>
 </div>
+
 
