@@ -12,7 +12,7 @@ export class RegisterComponent {
   registerForm: FormGroup;
   submitted = false;
   registrationError: string | null = null;
-
+  errorMessage: string | null = null;
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -68,6 +68,7 @@ export class RegisterComponent {
       error => {
         this.registrationError = 'Registration failed. Please try again.';
         console.error('Registration error', error);
+        this.errorMessage = 'Registration failed. Please try again.';
       }
     );
   }
