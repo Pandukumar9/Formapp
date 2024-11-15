@@ -20,15 +20,15 @@ export class LoginComponent {
     private api:ApiService
   ) {
     this.loginForm = this.fb.group({
-      username: ['', [Validators.required]],
+      email: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
   onSubmit(): void {
     if (this.loginForm.valid) {
-      const { username, password } = this.loginForm.value;
-      this.authService.login(username, password).subscribe(
+      const { email, password } = this.loginForm.value;
+      this.authService.login(email, password).subscribe(
         (success) => {
           console.log(success)
           if (success.Status == "Success") {
@@ -36,7 +36,7 @@ export class LoginComponent {
             success.userData.role == 'admin' ? this.router.navigate(['/admin-dash']) : this.router.navigate(['/users/user']);  // Navigate to home on successful login
             // window.location.reload();    // Reload the page
           } else {
-            this.errorMessage = 'Invalid username or password';
+            this.errorMessage = 'Invalid email or password';
           }
         },
         (error) => {

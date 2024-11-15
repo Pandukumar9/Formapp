@@ -14,17 +14,17 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router, private api: ApiService) { }
 
-  login(username: string, password: string): Observable<any> {
+  login(email: string, password: string): Observable<any> {
     return this.http.get<User[]>(this.loginUrl).pipe(
       map(users => {
         // Find the user based on username and password
-        const user = users.find(u => u.username === username && u.password === password);
+        const user = users.find(u => u.email === email && u.password === password);
         if (user) {
           // Store token and role in localStorage
           localStorage.setItem('authToken', user.token);
           localStorage.setItem('userRole', user.role);
           localStorage.setItem('userId', user.id.toString());
-          localStorage.setItem('userName', user.username);
+          localStorage.setItem('email', user.email);
           return { userData: user, Status: "Success" };
         } else {
           return "Failed";
