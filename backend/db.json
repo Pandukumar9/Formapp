@@ -17,15 +17,6 @@
       "password": "test@123",
       "role": "user",
       "token": "nwqyjyevg2"
-    },
-    {
-      "id": 40084,
-      "firstname": "kumar",
-      "lastname": "last",
-      "email": "kumar@gmail.com",
-      "password": "test@123",
-      "role": "user",
-      "token": "w1z5qwjfos7"
     }
   ],
   "fruits": [
