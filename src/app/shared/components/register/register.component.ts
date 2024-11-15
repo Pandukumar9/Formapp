@@ -12,14 +12,15 @@ export class RegisterComponent {
   registerForm: FormGroup;
   submitted = false;
   registrationError: string | null = null;
-
+  errorMessage: string | null = null;
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router
   ) {
     this.registerForm = this.formBuilder.group({
-      username: ['', [Validators.required, Validators.minLength(3)]],
+      firstname: ['', [Validators.required, Validators.minLength(5)]],
+      lastname: ['', [Validators.required, Validators.minLength(4)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', Validators.required]
@@ -57,8 +58,8 @@ export class RegisterComponent {
       return;
     }
 
-    const { username, email, password } = this.registerForm.value;
-    this.authService.register(username, email, password).subscribe(
+    const { firstname,lastname, email, password } = this.registerForm.value;
+    this.authService.register( firstname,lastname,email, password).subscribe(
       response => {
         console.log(response,'response')
         alert('Registration successful!');
@@ -67,6 +68,7 @@ export class RegisterComponent {
       error => {
         this.registrationError = 'Registration failed. Please try again.';
         console.error('Registration error', error);
+        this.errorMessage = 'Registration failed. Please try again.';
       }
     );
   }

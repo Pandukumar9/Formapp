@@ -14,11 +14,11 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router, private api: ApiService) { }
 
-  login(Email: string, password: string): Observable<any> {
+  login(email: string, password: string): Observable<any> {
     return this.http.get<User[]>(this.loginUrl).pipe(
       map(users => {
         // Find the user based on username and password
-        const user = users.find(u => u.email === Email && u.password === password);
+        const user = users.find(u => u.email === email && u.password === password);
         if (user) {
           // Store token and role in localStorage
           localStorage.setItem('authToken', user.token);
@@ -58,12 +58,13 @@ export class AuthService {
   }
 
   // Method to register a new user
-  register(Email: string, email: string, password: string): Observable<any> {
+  register(firstname: string,lastname: string, email: string, password: string): Observable<any> {
     // Generating a token and setting a default role
     const authToken = this.generateToken();
     const user = {
       id: this.generateUserId(), // Simulating ID generation; replace with backend-generated ID if available
-      Email,
+      firstname,
+      lastname,
       email,
       password,
       role: 'user',  // Default role

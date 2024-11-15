@@ -48,4 +48,8 @@ export class AdminService {
   deleteVegetable(id: number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/vegetables/${id}`);
   }
+  getusers(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/users`);
+  }
+  
 }

@@ -2,51 +2,21 @@
   "users": [
     {
       "id": "1",
-      "username": "admin",
+      "firstname": "pandu",
+      "lastname": "kumar",
       "email": "pandukumar.gujja204@gmail.com",
       "password": "admin123",
       "role": "admin",
       "token": "admintoken123"
     },
     {
-      "id": "81917",
-      "username": "pandukumar",
-      "email": "pandukumar.gujja@gmail.com",
-      "password": "Test#1357",
-      "role": "user",
-      "token": "dxyu3wgyues"
-    },
-    {
-      "id": "76589",
-      "username": "madhukumar",
-      "email": "madhukumar@gmail.com",
+      "id": 49428,
+      "firstname": "madhu",
+      "lastname": "kumar",
+      "email": "pandu@gmail.com",
       "password": "test@123",
       "role": "user",
-      "token": "1lpvrt32z9f"
-    },
-    {
-      "id": "39958",
-      "username": "prudvi",
-      "email": "prudviraj@gmail.com",
-      "password": "test@123",
-      "role": "user",
-      "token": "3ginm3lyyzb"
-    },
-    {
-      "id": 64811,
-      "username": "madhu",
-      "email": "madhuk0009@gmail.com",
-      "password": "test@123",
-      "role": "user",
-      "token": "6ko3geoe4s"
-    },
-    {
-      "id": 47573,
-      "username": "laddu",
-      "email": "laddu@gmail.com",
-      "password": "laddu@123",
-      "role": "user",
-      "token": "l4ntxflpntb"
+      "token": "nwqyjyevg2"
     }
   ],
   "fruits": [

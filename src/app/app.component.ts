@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  isactive:string="hai"
   title = 'formerapp';
 }
 // npx json-server db.json

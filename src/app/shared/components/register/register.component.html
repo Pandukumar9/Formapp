@@ -2,27 +2,42 @@
   <div class="register-container">
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <h2>Register</h2>
-  
+
       <div *ngIf="registrationError" class="alert alert-danger">
         {{ registrationError }}
       </div>
-  
+
       <!-- Username Field -->
       <div class="form-group">
-        <label for="username">Username</label>
+        <label for="firstname">First name</label>
         <input
           type="text"
-          id="username"
-          formControlName="username"
+          id="firstname"
+          formControlName="firstname"
           class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && registerForm.get('username')?.errors }"
+          [ngClass]="{ 'is-invalid': submitted && registerForm.get('firstname')?.errors }"
         />
-        <div *ngIf="submitted && registerForm.get('username')?.errors" class="invalid-feedback">
-          <div *ngIf="registerForm.get('username')?.errors?.['required']">Username is required.</div>
-          <div *ngIf="registerForm.get('username')?.errors?.['minlength']">Username must be at least 3 characters.</div>
+        <div *ngIf="submitted && registerForm.get('firstname')?.errors" class="invalid-feedback">
+          <div *ngIf="registerForm.get('firstname')?.errors?.['required']">firstname is required.</div>
+          <div *ngIf="registerForm.get('firstname')?.errors?.['minlength']">firstname must be at least 3 characters.</div>
         </div>
       </div>
-  
+
+      <div class="form-group">
+        <label for="lastname">Last name</label>
+        <input
+          type="text"
+          id="lastname"
+          formControlName="lastname"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && registerForm.get('lastname')?.errors }"
+        />
+        <div *ngIf="submitted && registerForm.get('lastname')?.errors" class="invalid-feedback">
+          <div *ngIf="registerForm.get('lastname')?.errors?.['required']">lastname is required.</div>
+          <div *ngIf="registerForm.get('lastname')?.errors?.['minlength']">lastname must be at least 3 characters.</div>
+        </div>
+      </div>
+
       <!-- Email Field -->
       <div class="form-group">
         <label for="email">Email</label>
@@ -38,7 +53,7 @@
           <div *ngIf="registerForm.get('email')?.errors?.['email']">Email is invalid.</div>
         </div>
       </div>
-  
+
       <!-- Password Field -->
       <div class="form-group">
         <label for="password">Password</label>
@@ -54,7 +69,7 @@
           <div *ngIf="registerForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters.</div>
         </div>
       </div>
-  
+
       <!-- Confirm Password Field -->
       <div class="form-group">
         <label for="confirmPassword">Confirm Password</label>
@@ -70,8 +85,10 @@
           <div *ngIf="registerForm.get('confirmPassword')?.errors?.['mustMatch']">Passwords must match.</div>
         </div>
       </div>
-  
+
       <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Register</button>
     </form>
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+    <p class="mt-3">Already have an account? <a class="regi" href="/login">Login here</a></p>
   </div>
 </div>
