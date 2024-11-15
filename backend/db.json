@@ -25,12 +25,28 @@
       "token": "1lpvrt32z9f"
     },
     {
-      "id": 39958,
+      "id": "39958",
       "username": "prudvi",
       "email": "prudviraj@gmail.com",
       "password": "test@123",
       "role": "user",
       "token": "3ginm3lyyzb"
+    },
+    {
+      "id": 64811,
+      "username": "madhu",
+      "email": "madhuk0009@gmail.com",
+      "password": "test@123",
+      "role": "user",
+      "token": "6ko3geoe4s"
+    },
+    {
+      "id": 47573,
+      "username": "laddu",
+      "email": "laddu@gmail.com",
+      "password": "laddu@123",
+      "role": "user",
+      "token": "l4ntxflpntb"
     }
   ],
   "fruits": [
