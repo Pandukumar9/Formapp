@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { User } from 'src/app/shared';
 
 @Injectable({
   providedIn: 'root'
@@ -51,5 +52,13 @@ export class AdminService {
   getusers(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/users`);
   }
-  
+
+  deleteUser(userId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/users/${userId}`);
+  }
+
+  updateUser(updatedUser:any,id:any):Observable<any>{
+    return this.http.put(`http://localhost:3000/users/${id}`, updatedUser)
+   }
+
 }

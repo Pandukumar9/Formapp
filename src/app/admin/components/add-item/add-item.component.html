@@ -1,5 +1,5 @@
 <div class="container p-4">
-  <h2>Add a New Item</h2>
+  <h2>{{ isViewMode ? 'View Item Details' : 'Edit Item Details' }}</h2>
 <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
 
   <div class="form-group">
@@ -17,7 +17,7 @@
       Name is required.
     </div>
   </div>
-  
+
   <div class="form-group">
     <label for="pricePerKg">Price per Kg</label>
     <input type="number" class="form-control" formControlName="pricePerKg" id="pricePerKg" required>
