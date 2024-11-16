@@ -5,8 +5,8 @@ import { LoginComponent } from './shared/components/login/login.component';
 import { RegisterComponent } from './shared/components/register/register.component';
 import { DashboardComponent } from './shared/components/dashboard/dashboard.component';
 
-const routes: Routes = [  
-  // { path: '', redirectTo: '/admin/admin-dash', pathMatch: 'full' },
+const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   // { path: '**', redirectTo: '/' },
   { path: 'login', component:LoginComponent},
   { path: 'register', component:RegisterComponent},

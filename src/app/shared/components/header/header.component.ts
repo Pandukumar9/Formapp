@@ -11,26 +11,25 @@ import { UserService } from 'src/app/users';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
+  userProfile:any;
 
   constructor(private userService: UserService, private authService: AuthService,private api:ApiService, private route:Router) {}
-  userProfile:any;
-  ngOnInit(): void {
-    this.api.userdata.subscribe(res => {
-      this.userProfile = res;
-    })
+
+  ngOnInit() {
+    const storedUserProfile = localStorage.getItem('userProfile');
+    if (storedUserProfile) {
+      // Load user data from localStorage
+      this.userProfile = JSON.parse(storedUserProfile);
+    } else {
+      // Subscribe to API to fetch user data
+      this.api.userdata.subscribe(res => {
+        this.userProfile = res;
+        // Persist the data in localStorage
+        localStorage.setItem('userProfile', JSON.stringify(this.userProfile));
+      });
+    }
   }
 
-  logout(): void {
-    this.authService.logout();  // Clear session using AuthService
-    // window.location.reload();    // Reload the page
-  }
-
-  ngOnDestroy(): void {
-    // // Unsubscribe to prevent memory leaks
-    // if (this.userSubscription) {
-    //   this.userSubscription.unsubscribe();
-    // }
-  }
 
   register(){
     this.route.navigate(['/register']);
@@ -39,4 +38,29 @@ export class HeaderComponent implements OnInit, OnDestroy {
   login(){
     this.route.navigate(['/login']);
   }
+
+  logout() {
+    this.authService.logout();  // Clear session using AuthService
+    localStorage.removeItem('userProfile');
+  console.log('User logged out');
+  // Redirect to login or clear the current user profile
+  this.userProfile = null;
+  }
+
+  ngOnDestroy() {
+    // // Unsubscribe to prevent memory leaks
+    // if (this.userSubscription) {
+    //   this.userSubscription.unsubscribe();
+    // }
+  }
+
+  getInitials(firstname: string, lastname: string): string {
+    return (firstname.charAt(0) + lastname.charAt(0)).toUpperCase();
+  }
+
+  getAvatarBackgroundColor(): string {
+    const colors = ['#FF5733', '#33A1FF', '#33FF57', '#FFC133', '#B833FF'];
+    return colors[Math.floor(Math.random() * colors.length)];
+  }
+
 }

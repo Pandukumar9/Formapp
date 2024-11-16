@@ -46,6 +46,16 @@
       "lastname": "madhukk1",
       "email": "maddhu@gmail.com",
       "role": "user"
+    },
+    {
+      "id": 5663,
+      "firstname": "samba",
+      "lastname": "shiva",
+      "email": "sambashiva@gmail.com",
+      "password": "test@123",
+      "role": "user",
+      "token": "awhwqy5gqsq",
+      "profilePicture": null
     }
   ],
   "fruits": [
