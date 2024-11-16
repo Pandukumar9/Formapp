@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { AdminService } from '../../services/admin.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-item',
@@ -15,18 +15,26 @@ export class AddItemComponent {
   constructor(
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<AddItemComponent>,  // Inject dialog reference
-    private service: AdminService
+    private service: AdminService,
+    @Inject(MAT_DIALOG_DATA) public data: any, // Inject the data passed from the parent
   ) { }
-
-  ngOnInit(): void {
+  isViewMode: boolean = false;
+  ngOnInit() {
+    console.log(this.data,'padnu');
     // Initialize the form
     this.itemForm = this.fb.group({
-      category: ['', Validators.required],
-      name: ['', Validators.required],
-      pricePerKg: [null, [Validators.required, Validators.min(1)]],
-      availableQuantity: [null, [Validators.required, Validators.min(1)]],
-      comments: ['fruit', Validators.required]
+      category: [this.data.fruit.category? this.data.fruit.category : '', Validators.required],
+      name: [this.data.fruit.name? this.data.fruit.name : '', Validators.required],
+      pricePerKg: [this.data.fruit.pricePerKg? this.data.fruit.pricePerKg : null, [Validators.required, Validators.min(1)]],
+      availableQuantity: [this.data.fruit.availableQuantity? this.data.fruit.availableQuantity : null, [Validators.required, Validators.min(1)]],
+      comments: [this.data.fruit.comments? this.data.fruit.comments : '', Validators.required]
     });
+
+    // If in view mode, disable all form fields
+    if (this.data?.mode === 'view') {
+      this.isViewMode = true;
+      this.itemForm.disable();
+    }
   }
 
   onSubmit(): void {
@@ -50,6 +58,9 @@ export class AddItemComponent {
         });
       }
     }
+
+    // this.isViewMode = false;
+    // this.itemForm.enable(); // Enable all form fields for editing
   }
 
   onCancel(): void {

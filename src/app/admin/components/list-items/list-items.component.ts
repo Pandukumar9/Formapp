@@ -49,13 +49,11 @@ export class ListItemsComponent {
       }
     });
   }
-  
+
   viewData(item:any){
     const dialogRef = this.dialog.open(AddItemComponent, {
       width: '400px',  // Optional: You can set the dialog size,
-      data: {
-        fruit: item
-      }
+      data: { fruit: item , mode: 'view'} // Pass the data to the dialog
     });
 
     dialogRef.afterClosed().subscribe(result => {
