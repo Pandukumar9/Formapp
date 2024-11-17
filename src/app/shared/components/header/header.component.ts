@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { KeycloakService } from 'keycloak-angular';
 import { ApiService } from 'src/app/core';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { UserService } from 'src/app/users';
@@ -13,7 +14,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   userProfile:any;
 
-  constructor(private userService: UserService, private authService: AuthService,private api:ApiService, private route:Router) {}
+  constructor(private userService: UserService, private authService: AuthService,private api:ApiService, private route:Router,private keycloak: KeycloakService) {}
 
   ngOnInit() {
     const storedUserProfile = localStorage.getItem('userProfile');
@@ -39,13 +40,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.route.navigate(['/login']);
   }
 
-  logout() {
-    this.authService.logout();  // Clear session using AuthService
-    localStorage.removeItem('userProfile');
-  console.log('User logged out');
-  // Redirect to login or clear the current user profile
-  this.userProfile = null;
-  }
+  // logout() {
+  //   this.authService.logout();  // Clear session using AuthService
+  //   localStorage.removeItem('userProfile');
+  // console.log('User logged out');
+  // // Redirect to login or clear the current user profile
+  // this.userProfile = null;
+  // }
 
   ngOnDestroy() {
     // // Unsubscribe to prevent memory leaks
@@ -61,6 +62,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   getAvatarBackgroundColor(): string {
     const colors = ['#FF5733', '#33A1FF', '#33FF57', '#FFC133', '#B833FF'];
     return colors[Math.floor(Math.random() * colors.length)];
+  }
+
+  //keycloak logout
+  logout() {
+    this.keycloak.logout();
   }
 
 }
