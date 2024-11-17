@@ -29,13 +29,13 @@ export const roleGuard: CanActivateFn = async (route, state) => {
 
     // Redirect to appropriate modules if roles don't match
     if (keycloak.isUserInRole('farmer')) {
-      if (state.url !== '/admin') {
-        await router.navigate(['/admin/admin-dash']); // Redirect to admin module
+      if (state.url !== 'admin-dash') {
+        await router.navigate(['/admin-dash']); // Redirect to admin module
         return false;
       }
     } else if (keycloak.isUserInRole('custamer')) {
-      if (state.url !== '/users/user') {
-        await router.navigate(['/users/user']); // Redirect to user module
+      if (state.url !== 'user') {
+        await router.navigate(['/user']); // Redirect to user module
         return false;
       }
     } else {

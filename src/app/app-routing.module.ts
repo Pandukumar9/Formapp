@@ -13,13 +13,13 @@ const routes: Routes = [
     // { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: DashboardComponent },
     {
-      path: 'admin',
+      path: '',
       loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
       canActivate: [roleGuard],
       data: { roles: ['farmer'] }
     },
     {
-      path: 'users',
+      path: '',
       loadChildren: () => import('./users/users.module').then(m => m.UsersModule),
       canActivate: [roleGuard],
       data: { roles: ['custamer'] }
