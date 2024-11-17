@@ -46,4 +46,13 @@ export class UserProfileComponent implements OnInit {
    })
   }
 
+  getInitials(firstname: string, lastname: string): string {
+    return (firstname.charAt(0) + lastname.charAt(0)).toUpperCase();
+  }
+
+  getAvatarBackgroundColor(): string {
+    const colors = ['#FF5733', '#33A1FF', '#33FF57', '#FFC133', '#B833FF'];
+    return colors[Math.floor(Math.random() * colors.length)];
+  }
+
 }

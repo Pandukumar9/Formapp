@@ -3,13 +3,27 @@
 
   <!-- Profile Picture Section -->
   <div class="text-center mb-4">
-    <img
-      [src]="profilePicture || user.profilePicture || 'assets/default-profile.png'"
-      alt="Profile Picture"
-      class="rounded-circle border"
-      width="150"
-      height="150"
-    />
+    <div *ngIf="profilePicture || user.profilePicture; else initialsAvatar">
+      <img
+        [src]="profilePicture || user.profilePicture"
+        alt="Profile Picture"
+        class="rounded-circle border"
+        width="150"
+        height="150"
+        style="object-fit: cover;"
+      />
+    </div>
+
+    <ng-template #initialsAvatar>
+      <div
+        class="avatar-initials rounded-circle d-flex justify-content-center align-items-center border"
+        [style.background-color]="getAvatarBackgroundColor()"
+        style="width: 150px; height: 150px; font-size: 2rem; font-weight: bold; color: white;"
+      >
+        {{ getInitials(user.firstname, user.lastname) }}
+      </div>
+    </ng-template>
+
     <div class="mt-3">
       <label for="profilePicture" class="btn btn-outline-secondary">
         Upload Profile Picture
@@ -19,6 +33,7 @@
         id="profilePicture"
         class="d-none"
         (change)="onProfilePictureSelected($event)"
+        accept="image/*"
       />
     </div>
   </div>
@@ -34,6 +49,7 @@
         [(ngModel)]="user.firstname"
         name="firstname"
         placeholder="Enter your first name"
+        required
       />
     </div>
 
@@ -46,6 +62,7 @@
         [(ngModel)]="user.lastname"
         name="lastname"
         placeholder="Enter your last name"
+        required
       />
     </div>
 

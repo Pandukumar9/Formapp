@@ -9,10 +9,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../shared/material/material.module';
 
 const routes: Routes = [
+  // { path: '', redirectTo: '/admin-dash', pathMatch: 'full' },
   { path: 'admin-dash', component: AdminDashboardComponent },
   // { path: 'list', component: ListItemsComponent },
   // { path: 'add', component: AddItemComponent },
-  { path: '', redirectTo: '/list', pathMatch: 'full' },
+
 ];
 
 @NgModule({
