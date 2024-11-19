@@ -5,6 +5,7 @@ import { LoginComponent } from './shared/components/login/login.component';
 import { RegisterComponent } from './shared/components/register/register.component';
 import { DashboardComponent } from './shared/components/dashboard/dashboard.component';
 import { roleGuard } from './core/guards/role.guard';
+import { KeycloakComponent } from './shared/components/keycloak/keycloak.component';
 
 const routes: Routes = [
   // { path: 'login', component:LoginComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
       canActivate: [roleGuard],
       data: { roles: ['custamer'] }
     },
+    { path: 'keycloak', component: KeycloakComponent },
     // { path: '**', redirectTo: '/home' }, // Catch-all for unknown routes
 
 

@@ -1,0 +1,83 @@
+<div class="container py-5">
+  <h1 class="text-center display-4 text-primary mb-5">Keycloak SAML SSO Overview</h1>
+
+  <!-- Introduction Section -->
+  <section class="mb-5">
+    <h2 class="h4 text-secondary mb-3">What is Keycloak SAML SSO?</h2>
+    <p>
+      <strong>Keycloak</strong> is an open-source Identity and Access Management (IAM) solution supporting
+      <strong>Single Sign-On (SSO)</strong> via protocols like <strong>SAML</strong> and <strong>OIDC</strong>.
+      It can act as both an <strong>Identity Provider (IdP)</strong> and a <strong>Service Provider (SP)</strong>.
+    </p>
+  </section>
+
+  <!-- Keycloak Roles Section -->
+  <section class="mb-5">
+    <h2 class="h4 text-secondary mb-3">Roles of Keycloak in SAML SSO</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="h5 text-primary">As Identity Provider (IdP)</h3>
+        <ul>
+          <li>Authenticates users centrally.</li>
+          <li>Issues SAML tokens to Service Providers (SPs).</li>
+          <li>Supports user federation (LDAP, Active Directory).</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h3 class="h5 text-primary">As Service Provider (SP)</h3>
+        <ul>
+          <li>Delegates authentication to an external IdP.</li>
+          <li>Manages user access to applications.</li>
+          <li>Integrates with third-party IdPs like Okta, Azure AD.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="mb-5">
+    <h2 class="h4 text-secondary mb-3">Benefits of Keycloak SAML SSO</h2>
+    <ul class="list-group">
+      <li class="list-group-item">Centralized Authentication for multiple applications.</li>
+      <li class="list-group-item">Enhanced Security with secure token exchange.</li>
+      <li class="list-group-item">Simplified User Experience with single sign-on.</li>
+      <li class="list-group-item">User Federation with LDAP, Active Directory, etc.</li>
+      <li class="list-group-item">Customizable Authentication Flows (e.g., MFA, social logins).</li>
+      <li class="list-group-item">Cost-effective and extensible as open-source software.</li>
+    </ul>
+  </section>
+
+  <!-- Use Cases Section -->
+  <section class="mb-5">
+    <h2 class="h4 text-secondary mb-3">Use Cases</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="h5 text-primary">Enterprise Applications</h3>
+        <p>Keycloak as an IdP provides SSO for tools like Jira, Confluence, and custom apps.</p>
+      </div>
+      <div class="col-md-6">
+        <h3 class="h5 text-primary">Education Systems</h3>
+        <p>Universities use Keycloak as an SP to authenticate students via a national IdP.</p>
+      </div>
+      <div class="col-md-6">
+        <h3 class="h5 text-primary">Government Portals</h3>
+        <p>Government IdPs issue SAML tokens for accessing citizen services and tax portals.</p>
+      </div>
+      <div class="col-md-6">
+        <h3 class="h5 text-primary">E-Commerce Platforms</h3>
+        <p>Keycloak manages user identities for payment gateways and partner applications.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Workflow Section -->
+  <section class="mb-5">
+    <h2 class="h4 text-secondary mb-3">Keycloak SAML SSO Workflow</h2>
+    <ol class="list-group list-group-numbered">
+      <li class="list-group-item">User attempts to access a protected resource.</li>
+      <li class="list-group-item">SP redirects the user to IdP (Keycloak or external) for authentication.</li>
+      <li class="list-group-item">User authenticates at the IdP.</li>
+      <li class="list-group-item">IdP generates a SAML assertion and sends it to the SP.</li>
+      <li class="list-group-item">SP validates the assertion and grants access to the resource.</li>
+    </ol>
+  </section>

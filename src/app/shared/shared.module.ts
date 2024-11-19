@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 // import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { KeycloakComponent } from './components/keycloak/keycloak.component';
 // import { SidebarComponent } from './components/sidebar/sidebar.component';
 // Import shared components, directives, and pipes here
 // import { SharedComponent } from './components/shared-component/shared-component.component';
@@ -21,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     // DashboardComponent,
     HomeComponent,
+    KeycloakComponent,
     // SidebarComponent
   ],
   imports: [
