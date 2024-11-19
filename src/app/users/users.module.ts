@@ -11,6 +11,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { UserOrdersComponent } from './components/user-orders/user-orders.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/user', pathMatch: 'full' },
   { path: 'user', component: UserDashboardComponent },
   { path: 'support', component: SupportComponent },
   { path: 'userorder', component:  UserOrdersComponent},
